@@ -1,13 +1,20 @@
 import React from 'react'
 import { BsFillArrowUpRightSquareFill } from 'react-icons/bs'
 import { FaCopy, FaArrowLeft } from 'react-icons/fa'
+import { GoTrash } from 'react-icons/go'
+import { deleteUrl } from '../api'
 import formatDateTime from '../util/formatDateTime'
 import msToTime from '../util/msToTime.js'
 import { useNavigate } from 'react-router-dom'
+import Error from './error'
 
 export default function UrlDetails({ urlData }) {
 	const id = urlData.urlID
 	const navigate = useNavigate()
+
+	const [loading, setLoading] = React.useState(false)
+	const [error, setError] = React.useState(null)
+
 	const protocol = window.location.protocol
 	const hostname = window.location.hostname
 	const port = window.location.port
@@ -25,11 +32,36 @@ export default function UrlDetails({ urlData }) {
 		)
 	}
 
+	function deleteClickHandler(event) {
+		setLoading(true)
+		setError(null)
+		const urlID = id
+		console.log('Deleting URL with ID:', urlID)
+		deleteUrl(urlID).then((res) => {
+			if (res.error) {
+				setLoading(false)
+				return setError(res.error)
+			}
+			navigate(-1)
+		})
+	}
+
 	return (
 		<div className="url--d">
-			<button onClick={() => navigate(-1)} className="back--btn red--btn">
-				<FaArrowLeft />
-			</button>
+			{error && <Error error={error} />}
+			<div className="url--h--btns">
+				<button onClick={() => navigate(-1)} className="back--btn red--btn">
+					<FaArrowLeft />
+				</button>
+				<button
+					id={id}
+					disabled={loading}
+					className={`url--btn url--trash red--btn display--block ${loading && 'loading--btn'}`}
+					onClick={deleteClickHandler}
+				>
+					<GoTrash className="url--btn--icon" />
+				</button>
+			</div>
 			<div className="url--d--h1">
 				<a
 					href={urlData.originalUrl}

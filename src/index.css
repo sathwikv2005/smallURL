@@ -448,6 +448,15 @@ body {
 	font-weight: 700;
 }
 
+.url--h--btns {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0px 10px;
+	margin-bottom: 20px;
+}
+
 .url--list {
 	margin-top: 20px;
 }
@@ -773,4 +782,8 @@ body {
 	.urls--h3 {
 		font-size: 20px;
 	}
+}
+
+.display--block {
+	display: flex !important;
 }
