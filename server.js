@@ -1,7 +1,3 @@
-//TODO server react build files
-//TODO google api config to production
-//TODO Change html meta tags
-//TODO Change README.md
 require('dotenv').config()
 const express_secret = process.env.EXPRESS_SESSION_SECRET
 const express = require('express')
@@ -28,7 +24,7 @@ app.use(
 		methods: 'GET,POST,PUT,DELETE',
 	})
 )
-
+app.set('trust proxy', 1)
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.use(express.json())
@@ -39,7 +35,8 @@ app.use(
 		saveUninitialized: true,
 		store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
 		cookie: {
-			secure: process.env.NODE_ENV === 'production',
+			secure: process.env.NODE_ENV === 'production', // Set to true in production
+			sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
 		},
 	})
 )
