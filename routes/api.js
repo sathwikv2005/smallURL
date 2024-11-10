@@ -19,6 +19,7 @@ const checkRequestedWith = (req, res, next) => {
 
 // API Route: /api/user
 router.get('/user', authenticate, async (req, res) => {
+	res.set('Cache-Control', 'no-store')
 	const { createdAt, lastLoginAt, urlCount, profilePicture, fullName, email, googleId } = req.user
 	var urls = await Url.find({ UID: googleId })
 	return res.json({
