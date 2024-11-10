@@ -429,6 +429,14 @@ body {
 	justify-content: space-between;
 }
 
+.url--list {
+	width: 100%;
+}
+
+.url--left {
+	max-width: 80%;
+}
+
 .urls--refresh {
 	padding: 10px;
 	display: flex;
@@ -492,7 +500,7 @@ body {
 	text-align: center;
 	align-items: center;
 	display: inline-block;
-	max-width: 300px;
+	max-width: 500px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -718,6 +726,12 @@ body {
 }
 
 @media (max-width: 641px) {
+	.url--trash {
+		display: none;
+	}
+	.url--original--link {
+		max-width: 400px;
+	}
 	.url--list {
 		margin-top: 5px;
 	}
@@ -739,7 +753,7 @@ body {
 }
 @media (max-width: 481px) {
 	.url--original--link {
-		max-width: 100%;
+		max-width: 280px;
 	}
 	.url--item {
 		padding: 0px;
@@ -747,10 +761,16 @@ body {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
-	.url--trash {
-		display: none;
-	}
 	.url--d--btn--icon {
 		font-size: 19px;
+	}
+	.urls--h1 {
+		font-size: 30px;
+	}
+	.urls--h2 {
+		font-size: 25px;
+	}
+	.urls--h3 {
+		font-size: 20px;
 	}
 }
