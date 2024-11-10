@@ -56,13 +56,6 @@ Small URL is a URL shortening service built with ReactJS, ExpressJS, and MongoDB
 
    The React app will be served at `http://localhost:9000` (or another port if configured).
 
-### Vercel Deployment (optional)
-
-1. Push your repository to GitHub.
-2. Import the repository on Vercel.
-3. Add environment variables (e.g., `MONGODB_URI`, Google OAuth credentials) in the Vercel project settings.
-4. Vercel will automatically deploy your app. Ensure that your MongoDB connection string is configured correctly for persistence.
-
 ## License
 
 MIT

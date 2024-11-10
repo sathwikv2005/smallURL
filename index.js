@@ -15,15 +15,7 @@ const passportConfig = require('./passportConfig')
 const MongoStore = require('connect-mongo')
 const useragent = require('express-useragent')
 const path = require('path')
-const cors = require('cors')
 
-app.use(
-	cors({
-		origin: process.env.GOOGLE_CALLBACK_URL.split('/auth')[0], // Replace with your frontend's origin
-		credentials: true,
-		methods: 'GET,POST,PUT,DELETE',
-	})
-)
 app.set('trust proxy', 1)
 app.use(express.static(path.join(__dirname, 'build')))
 
