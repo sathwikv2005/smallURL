@@ -25,10 +25,14 @@ app.use(
 		secret: express_secret,
 		resave: false,
 		saveUninitialized: true,
-		store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+		store: MongoStore.create({
+			mongoUrl: process.env.MONGODB_URI,
+			ttl: 7 * 24 * 60 * 60,
+		}),
 		cookie: {
-			secure: process.env.NODE_ENV === 'production', // Set to true in production
+			secure: process.env.NODE_ENV === 'production',
 			sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+			maxAge: 7 * 24 * 60 * 60 * 1000,
 		},
 	})
 )
