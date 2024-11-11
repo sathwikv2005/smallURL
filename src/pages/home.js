@@ -163,7 +163,7 @@ export default function Home() {
 			</div>
 			<footer>
 				<a href="https://github.com/sathwikv2005/smallURL">Github</a>
-				<a href="/tc">Terms and Conditions</a> <a href="/privacy_policy">Privacy policy</a>
+				<a href="/tc">T&C</a> <a href="/privacy_policy">Privacy policy</a>
 			</footer>
 		</>
 	)
