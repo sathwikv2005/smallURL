@@ -33,6 +33,10 @@ html {
 	font-family: 'Ubuntu', sans-serif;
 }
 
+.blue--text {
+	color: rgb(0, 242, 255);
+}
+
 .red--text {
 	color: #ff0000;
 }
@@ -69,6 +73,10 @@ html {
 .red--btn:active {
 	scale: 1.1;
 	box-shadow: 5px 5px 0px rgba(255, 0, 0, 0.3);
+}
+
+.loading {
+	opacity: 0.5;
 }
 
 .loading--btn {
@@ -171,14 +179,22 @@ html {
 
 .home--shorten {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 5px;
 	width: 90%;
+	flex-direction: column;
 }
 
 .home--h1 {
 	color: #ff0000;
+	margin-bottom: 0px;
+	justify-self: center;
+}
+
+.home--h2 {
+	font-size: 15px;
+	text-align: left;
+	justify-self: start;
 }
 
 .home--form {
@@ -206,6 +222,10 @@ html {
 
 .home--btn {
 	width: 80%;
+}
+
+.home--btn--small--screen {
+	display: none;
 }
 
 .home--error {
@@ -673,6 +693,20 @@ html {
 	.nav--right-items a {
 		padding: 0px 10px;
 	}
+
+	.urls--refresh {
+		width: 55px;
+		margin-left: auto;
+		margin-right: 12px;
+		margin-top: 15px;
+	}
+
+	.url--right {
+		padding-left: 0px;
+	}
+}
+
+@media (max-width: 641px) {
 	.home--form {
 		display: flex;
 		flex-direction: column;
@@ -687,15 +721,21 @@ html {
 		display: flex;
 		align-items: center;
 		justify-items: center;
+		margin-top: 15px;
+	}
+	.home--days--h1--container {
+		display: flex;
+		flex-direction: column;
+	}
+	.home--btn--large--screen {
+		display: none;
+	}
+	.home--btn--small--screen {
+		display: block;
 	}
 	.home--smalltext {
 		font-size: 25px;
 		margin-right: 5px;
-	}
-
-	.home--url--text {
-		font-size: 20px;
-		color: #eddbdb;
 	}
 	.home--copy {
 		width: 80px;
@@ -705,38 +745,15 @@ html {
 		/* margin-top: 20px; */
 		margin-bottom: 0px;
 	}
-	.home--url div {
-		padding: 20px 10px;
-	}
-	.home--url {
-		display: flex;
-		flex-direction: column;
-		padding: 20px 10px;
-		height: 100%;
-	}
-	.home--days--h1--container {
-		flex-direction: column;
-	}
 	.home--arrow {
 		margin-left: 8px;
 		margin-top: 0px;
 	}
 	.home--btn--text {
 		margin-bottom: 2px;
+		width: 100%;
+		padding: 0px 5px;
 	}
-	.urls--refresh {
-		width: 55px;
-		margin-left: auto;
-		margin-right: 12px;
-		margin-top: 15px;
-	}
-
-	.url--right {
-		padding-left: 0px;
-	}
-}
-
-@media (max-width: 641px) {
 	.url--trash {
 		display: none;
 	}
@@ -763,6 +780,13 @@ html {
 	}
 }
 @media (max-width: 481px) {
+	.home--day {
+		padding: 8px 4px;
+	}
+	.home--day--text {
+		padding: 0px;
+		font-size: 15px;
+	}
 	.url--original--link {
 		max-width: 280px;
 	}
@@ -774,6 +798,12 @@ html {
 	}
 	.url--d--btn--icon {
 		font-size: 19px;
+	}
+	.url--d--copy {
+		padding-left: 0px;
+	}
+	.url--d--smallurl {
+		font-size: 13px;
 	}
 	.urls--h1 {
 		font-size: 30px;

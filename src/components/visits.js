@@ -66,7 +66,7 @@ export default function Visits({ visitors }) {
 					<div className="visits">
 						{visits.map((visit) => {
 							return (
-								<div key={visit._id} id={visit._id} className="visit">
+								<div key={visit._id} id={visit._id} className={`visit ${loading && 'loading'}`}>
 									<div className="visit--left visit--inner">
 										<div className="visit--time">
 											<span className="visit--category sour-gummy">Time stamp: </span>

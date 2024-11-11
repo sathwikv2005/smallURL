@@ -71,7 +71,12 @@ export default function Urls({ userData }) {
 			<div className="url--list">
 				{data.urls.map((url, index) => {
 					return (
-						<div key={url.urlID} id={url.urlID} className="url--item">
+						<div
+							key={url.urlID}
+							id={url.urlID}
+							onClick={infoHandler}
+							className={`url--item ${loading && 'loading'}`}
+						>
 							<div className="url--left">
 								<div className="url--original ">
 									<span
