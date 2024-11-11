@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 			await User.findByIdAndDelete(req.user.id)
 
 			// Destroy the session
-			req.session.destroy((err) => {
+			req.session.destroy(req.sessionID, (err) => {
 				if (err) {
 					return res.status(500).json({ error: 'Failed to log out' })
 				}
