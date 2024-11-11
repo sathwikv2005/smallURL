@@ -1,6 +1,6 @@
 # Small URL
 
-Small URL is a URL shortening service built with ReactJS, ExpressJS, and MongoDB. It allows users to shorten long URLs into custom short links, track visit data, and view analytics. This app supports Google OAuth for user authentication and is designed to handle URL redirection efficiently.
+Small URL is a URL shortening service built with ReactJS, ExpressJS, and MongoDB. It allows users to shorten long URLs into short links, track visit data, and view analytics. This app supports Google OAuth for user authentication and is designed to handle URL redirection efficiently.
 
 ## Features
 
