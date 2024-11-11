@@ -93,6 +93,11 @@ export async function deleteUrl(urlID) {
 		}
 		const data = await res.json()
 		localStorage.removeItem('visitors-' + urlID)
+		const user = await getUser()
+		const newUrls = user.urls.filter((url) => url.urlID !== urlID)
+		user.urls = newUrls
+		localStorage.setItem('userData', JSON.stringify(user))
+
 		return {
 			success: res.ok,
 			loggedIn: data.loggedIn,
@@ -132,7 +137,6 @@ export async function fetchVisitors(id) {
 		},
 	})
 	if (!res.ok) {
-		console.log(res)
 		localStorage.removeItem('visitors-' + id)
 		if (res.status === 401) {
 			const resData = await res.json()
