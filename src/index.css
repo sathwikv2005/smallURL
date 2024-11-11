@@ -686,10 +686,31 @@ html {
 	border-bottom: 2px solid white;
 }
 
+footer {
+	margin-top: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	gap: 20px;
+	padding: 20px;
+}
+footer a {
+	color: rgb(172, 172, 172);
+	text-align: center;
+}
+#root {
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+	display: flex;
+	flex-direction: column;
+}
+
 @media (max-width: 961px) {
 	.navbar {
 		padding: 15px 10px;
 	}
+
 	.nav--right-items a {
 		padding: 0px 10px;
 	}
@@ -707,6 +728,9 @@ html {
 }
 
 @media (max-width: 641px) {
+	.home {
+		height: 30vh;
+	}
 	.home--form {
 		display: flex;
 		flex-direction: column;
@@ -814,28 +838,11 @@ html {
 	.urls--h3 {
 		font-size: 20px;
 	}
+	footer a {
+		font-size: 13px;
+	}
 }
 
 .display--block {
 	display: flex !important;
-}
-
-footer {
-	position: relative;
-	margin-top: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	text-align: center;
-	gap: 20px;
-	padding: 20px;
-}
-footer a {
-	color: rgb(172, 172, 172);
-	text-align: center;
-}
-#root {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
 }
