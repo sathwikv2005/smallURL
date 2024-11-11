@@ -15,6 +15,8 @@ const passportConfig = require('./passportConfig')
 const MongoStore = require('connect-mongo')
 const useragent = require('express-useragent')
 const path = require('path')
+const privacy_policy = require('./privacy_policy')
+const tc = require('./tc')
 
 app.set('trust proxy', 1)
 app.use(express.static(path.join(__dirname, 'build')))
@@ -44,6 +46,14 @@ app.use('/r', redirectRoutes) // Use the redirect route for /r/:urlID
 app.use('/api', apiRoutes)
 
 app.use('/login', loginRoutes)
+
+app.get('/privacy_policy', (req, res) => {
+	res.send(privacy_policy)
+})
+
+app.get('/tc', (req, res) => {
+	res.send(tc)
+})
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'))

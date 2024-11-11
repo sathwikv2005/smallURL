@@ -145,6 +145,9 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			<footer>
+				<a href="/tc">Terms and Conditions</a> <a href="/privacy_policy">Privacy policy</a>
+			</footer>
 		</>
 	)
 }
