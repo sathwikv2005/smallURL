@@ -98,7 +98,11 @@ export default function Urls({ userData }) {
 									id={url.urlID}
 									disabled={loading}
 									className={`url--btn red--btn ${loading && 'loading--btn'}`}
-									onClick={infoHandler}
+									onClick={(event) => {
+										// Stop the event from propagating to the parent div
+										event.stopPropagation()
+										infoHandler(event)
+									}}
 								>
 									<MdOutlineMoreHoriz className="url--btn--icon" />
 								</button>

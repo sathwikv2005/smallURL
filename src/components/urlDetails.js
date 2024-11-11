@@ -37,20 +37,32 @@ export default function UrlDetails({ urlData }) {
 		setError(null)
 		const urlID = id
 		console.log('Deleting URL with ID:', urlID)
-		deleteUrl(urlID).then((res) => {
-			if (res.error) {
+		deleteUrl(urlID)
+			.then((res) => {
+				if (res.error) {
+					setLoading(false)
+					console.log(res.error)
+					return setError(res.error)
+				}
+				navigate(-1, { replace: true })
+			})
+			.catch((error) => {
 				setLoading(false)
-				return setError(res.error)
-			}
-			navigate(-1)
-		})
+				console.error('Unexpected error:', error)
+				setError('Unexpected error occurred')
+			})
 	}
 
 	return (
 		<div className="url--d">
 			{error && <Error error={error} />}
 			<div className="url--h--btns">
-				<button onClick={() => navigate(-1)} className="back--btn red--btn">
+				<button
+					onClick={() => {
+						navigate(-1, { replace: true })
+					}}
+					className="back--btn red--btn"
+				>
 					<FaArrowLeft />
 				</button>
 				<button
