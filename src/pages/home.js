@@ -75,6 +75,10 @@ export default function Home() {
 			<div className="home">
 				<div className="home--shorten">
 					<h1 className="home--h1 ubuntu">Shorten your URL</h1>
+					<p className="home--h2 blue--text sour-gummy">
+						Shorten, track, and manage your URLs with Small URL. Create short links and monitor
+						visitor data easily.
+					</p>
 					<div className="home--form">
 						<form onSubmit={clickHandler}>
 							<input
@@ -84,7 +88,7 @@ export default function Home() {
 								onChange={onChangeHandler}
 							></input>
 						</form>
-						<div className="home--btn--container">
+						<div className="home--btn--container home--btn--large--screen">
 							<button
 								disabled={loading}
 								className="home--btn red--btn sour-gummy"
@@ -143,9 +147,22 @@ export default function Home() {
 							<span className="home--day--text inter">60 days</span>
 						</button>
 					</div>
+					<div className="home--btn--container home--btn--small--screen">
+						<button
+							disabled={loading}
+							className="home--btn red--btn sour-gummy"
+							onClick={url ? copyToClipboard : clickHandler}
+						>
+							<span className="home--btn--text">
+								{loading ? 'Loading..' : url ? (copied ? 'Copied' : 'Copy') : 'Shorten'}
+							</span>
+							{!loading && !url && <FaArrowRight className="home--arrow" />}
+						</button>
+					</div>
 				</div>
 			</div>
 			<footer>
+				<a href="https://github.com/sathwikv2005/smallURL">Github</a>
 				<a href="/tc">Terms and Conditions</a> <a href="/privacy_policy">Privacy policy</a>
 			</footer>
 		</>
