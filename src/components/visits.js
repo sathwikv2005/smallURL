@@ -9,7 +9,6 @@ import formatDateTime from '../util/formatDateTime'
 export default function Visits({ visitors }) {
 	const { id } = useParams()
 	const navigate = useNavigate()
-	console.log(visitors)
 	const [loading, setLoading] = React.useState(false)
 	const [error, setError] = React.useState(null)
 	const [visits, setVisits] = React.useState(visitors)

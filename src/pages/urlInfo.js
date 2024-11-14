@@ -17,7 +17,6 @@ export default function UrlInfo() {
 	React.useEffect(() => {
 		async function callGetUrl() {
 			const data = await getUrl(id)
-			console.log(data)
 			if (data.error) {
 				if (data.error === 'Unauthorized access') {
 					setError(null)

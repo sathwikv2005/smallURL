@@ -110,7 +110,10 @@ export default function Urls({ userData }) {
 									id={url.urlID}
 									disabled={loading}
 									className={`url--btn url--trash red--btn ${loading && 'loading--btn'}`}
-									onClick={deleteClickHandler}
+									onClick={(event) => {
+										event.stopPropagation()
+										deleteClickHandler(event)
+									}}
 								>
 									<GoTrash className="url--btn--icon" />
 								</button>
