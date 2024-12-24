@@ -2,8 +2,8 @@
 const express = require('express')
 const Url = require('../schemas/url')
 const Visit = require('../schemas/visits')
-const html = require('../expired.js')
 const router = express.Router()
+const path = require('path')
 
 router.get('/:urlID', async (req, res) => {
 	const { urlID } = req.params
@@ -12,7 +12,7 @@ router.get('/:urlID', async (req, res) => {
 		const url = await Url.findOne({ urlID })
 
 		if (!url) {
-			return res.send(html)
+			return res.sendFile(path.join(__dirname, '..', 'expired.html'))
 		}
 
 		const now = new Date()
