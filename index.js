@@ -24,7 +24,7 @@ app.use(
 	session({
 		secret: express_secret,
 		resave: false,
-		saveUninitialized: true,
+		saveUninitialized: false,
 		store: MongoStore.create({
 			mongoUrl: process.env.MONGODB_URI,
 			ttl: 7 * 24 * 60 * 60,

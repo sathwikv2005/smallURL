@@ -70,6 +70,7 @@ export default function Urls({ userData }) {
 		return (
 			<div className="url--list">
 				{data.urls.map((url, index) => {
+					if (parseInt(url.expiresAt) - Date.now() < 0) return
 					return (
 						<div
 							key={url.urlID}

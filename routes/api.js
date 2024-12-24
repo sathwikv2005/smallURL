@@ -41,6 +41,7 @@ router.post('/shorten', async (req, res) => {
 
 	if (!req.isAuthenticated() && days > 7) days = 7
 	if (days > 60) days = 60
+	if (days < 0) days = 7
 	if (!validURL(originalUrl)) return res.status(400).json({ message: 'Invalid URL' })
 	let user = null
 	if (req.isAuthenticated()) {
