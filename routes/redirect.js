@@ -18,7 +18,7 @@ router.get('/:urlID', async (req, res) => {
 		const now = new Date()
 		if (url.expiresAt && url.expiresAt < now) {
 			await Url.deleteOne({ urlID })
-			return res.send(html)
+			return res.sendFile(path.join(__dirname, '..', 'expired.html'))
 		}
 		res.redirect(url.originalUrl)
 		if (url.UID?.length > 0) {
